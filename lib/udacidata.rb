@@ -84,8 +84,8 @@ class Udacidata
     end      
   end
   
-  def self.where(options = {})
-    all.find_all {|product| product.brand == :brand || product.name == :name }
+  def self.where(opts = {})
+    all.find_all {|product| product.brand == opts[:brand] || product.name == opts[:name] }
   end
   
 end
