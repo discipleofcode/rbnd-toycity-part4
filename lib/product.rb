@@ -31,5 +31,13 @@ class Product < Udacidata
     def auto_increment
       @@count_class_instances += 1
     end
+    
+    def to_s
+      "id: #{@id}, name: #{@name}, brand: #{@brand}, price: #{@price}\n"
+    end
+    
+    def inspect
+      to_s
+    end
 
 end

@@ -56,7 +56,13 @@ class Udacidata
   end
   
   def self.find id
-    all.find { |product| product.id == id }
+    product = all.find { |product| product.id == id }
+    
+    if !product
+      raise ProductNotFoundError, "There is no product with id = #{id} in database"
+    end
+    
+    product
   end
   
   def self.all
