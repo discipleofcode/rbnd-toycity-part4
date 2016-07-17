@@ -1,6 +1,13 @@
 class Module
   def create_finder_methods(*attributes)
-    # Your code goes here!
-    # Hint: Remember attr_reader and class_eval
+    attributes.each do |attrib|
+      new_method = %{
+          def self.find_by_#{attrib}(search_phrase) 
+            all.find {|product| product.#{attrib} == search_phrase}
+          end
+        }
+      
+      self.class_eval new_method
+    end
   end
 end
